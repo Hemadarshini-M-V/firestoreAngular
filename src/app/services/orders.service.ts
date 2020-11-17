@@ -23,6 +23,21 @@ export class OrdersService {
   getPizzaOrders() {
     return this.fireStore.collection('pizzaOrders').snapshotChanges();
   }
+
+  updatePizzaOrder(data) {
+    return this.fireStore
+        .collection("pizzaOrders")
+        .doc(data.payload.doc.id)
+        .set({ completed: true }, { merge: true });
+ }
+
+ deletePizzaOrder(data) {
+  return this.fireStore
+      .collection("pizzaOrders")
+      .doc(data.payload.doc.id)
+      .delete();
+  }
+
 }
 
 

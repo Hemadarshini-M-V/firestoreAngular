@@ -23,4 +23,16 @@ export class OrderListComponent implements OnInit {
     })
   }
 
+
+  markCompleted = data => 
+    this.ordersService.updatePizzaOrder(data).then( res => {
+      this.getAllPizzaOrders();
+  });
+
+
+  deleteOrder = data => this.ordersService.deletePizzaOrder(data)
+    .then(res => {
+      this.getAllPizzaOrders();
+    });
+
 }

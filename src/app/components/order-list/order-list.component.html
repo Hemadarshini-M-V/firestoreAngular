@@ -9,9 +9,17 @@
             <td>{{ pizza.payload.doc.data().orderNumber }}</td>
             <td>{{ pizza.payload.doc.data().customerName }}</td>
             <td><span 
-                    *ngFor="let pizza of pizza.payload.doc.data().pizzaOrder">
-                {{ pizza }}
+                    *ngFor="let singlePizza of pizza.payload.doc.data().pizzaOrder">
+                {{ singlePizza }}
                 </span>
+            </td>
+            <td [hidden]="pizza.payload.doc.data().completed" 
+                (click)="markCompleted(pizza)">
+                <i class="material-icons">check</i>
+            </td>
+            <td [hidden]="pizza.payload.doc.data().completed" 
+                (click)="deleteOrder(pizza)">
+                <i class="material-icons">delete_forever</i>
             </td>
         </tr>
     </tbody>
