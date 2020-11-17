@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sampleFirestore"
+    }
+  },
+  "defaultProject": "sampleFirestore",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <th> Order No.</th>
+        <th> Name </th>
+        <th> Order List</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pizza of pizzaOrders">
+            <td>{{ pizza.payload.doc.data().orderNumber }}</td>
+            <td>{{ pizza.payload.doc.data().customerName }}</td>
+            <td><span 
+                    *ngFor="let pizza of pizza.payload.doc.data().pizzaOrder">
+                {{ pizza }}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
